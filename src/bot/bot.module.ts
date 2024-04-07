@@ -7,7 +7,6 @@ import { Car } from './entities/cars.entity';
 import { Service } from './entities/services.entity';
 import { User } from './entities/users.entity';
 import { Worker } from './entities/workers.entity';
-// import { Bot } from './entities/bot.entity';
 
 @Module({
   imports: [SequelizeModule.forFeature([Admin, Car, Service, User, Worker])],

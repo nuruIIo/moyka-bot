@@ -6,15 +6,15 @@ import { Context } from 'telegraf';
 export class BotUpdate {
   constructor(private readonly botService: BotService) {}
 
-  // @Start()
-  // async onStart(@Ctx() ctx: Context) {
-  //   this.botService.start(ctx);
-  // }
+  @Start()
+  async onStart(@Ctx() ctx: Context) {
+    this.botService.start(ctx);
+  }
 
-  // @On('contact')
-  // async onContact(@Ctx() ctx: Context) {
-  //   this.botService.onContact(ctx);
-  // }
+  @On('contact')
+  async onContact(@Ctx() ctx: Context) {
+    this.botService.onContact(ctx);
+  }
 
   // @Command('addadmin')
   // async addAdmin(@Ctx() ctx: Context) {
@@ -23,6 +23,11 @@ export class BotUpdate {
 
   @Command('addworker')
   async addWorker(@Ctx() ctx: Context) {
-    this.botService.addWorker(ctx)
+    this.botService.addWorker(ctx);
+  }
+
+  @Command('stop')
+  async onStop(@Ctx() ctx: Context) {
+    await this.botService.onStop(ctx);
   }
 }

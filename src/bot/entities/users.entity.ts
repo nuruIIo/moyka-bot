@@ -4,7 +4,7 @@ interface IUserCreationAttr {
   user_id: number;
   username: string;
   first_name: string;
-  last_name: string;
+  last_name: string | undefined;
   phone_number: string;
   status: boolean;
 }
@@ -12,14 +12,16 @@ interface IUserCreationAttr {
 @Table({ tableName: 'users' })
 export class User extends Model<User, IUserCreationAttr> {
   @Column({
-    allowNull: false,
-    unique: true,
+    type: DataType.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   })
   id: number;
 
-  @Column({ allowNull: false, unique: true })
+  @Column({ 
+    type: DataType.BIGINT,
+    unique: true 
+  })
   user_id: number;
 
   @Column(DataType.STRING)
@@ -29,7 +31,7 @@ export class User extends Model<User, IUserCreationAttr> {
   first_name: string;
 
   @Column(DataType.STRING)
-  last_name: string;
+  last_name: string | undefined;
 
   @Column(DataType.STRING)
   phone_number: string;

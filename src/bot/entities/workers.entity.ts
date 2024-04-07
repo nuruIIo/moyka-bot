@@ -12,14 +12,15 @@ interface IWorkerCreationAttr {
 @Table({ tableName: 'workers' })
 export class Worker extends Model<Worker, IWorkerCreationAttr> {
   @Column({
-    allowNull: false,
-    unique: true,
     primaryKey: true,
     autoIncrement: true,
   })
   id: number;
 
-  @Column({ unique: true })
+  @Column({ 
+    type: DataType.BIGINT,
+    unique: true 
+  })
   worker_id: number;
 
   @Column(DataType.STRING)

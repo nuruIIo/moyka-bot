@@ -9,7 +9,6 @@ import { Car } from './bot/entities/cars.entity';
 import { Service } from './bot/entities/services.entity';
 import { User } from './bot/entities/users.entity';
 import { Worker } from './bot/entities/workers.entity';
-// import { Bot } from './bot/entities/bot.entity';
 
 @Module({
   imports: [
@@ -29,9 +28,10 @@ import { Worker } from './bot/entities/workers.entity';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      autoLoadModels: true, // Automatically load models from the models directory
-      synchronize: true, // Automatically synchronize models with the database (for development only)
-      models: [Admin, Car, Service, User, Worker], // Array of model classes
+      autoLoadModels: true,
+      sync: { alter: true },
+      logging: false,
+      models: [Admin, Car, Service, User, Worker],
     }),
     BotModule,
   ],

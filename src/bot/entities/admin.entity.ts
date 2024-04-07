@@ -19,7 +19,11 @@ export class Admin extends Model<Admin, IAdminCreationAttr> {
   })
   id: number;
 
-  @Column({ allowNull: false, unique: true })
+  @Column({
+    type: DataType.BIGINT,
+    allowNull: false,
+    unique: true,
+  })
   admin_id: number;
 
   @Column(DataType.STRING)

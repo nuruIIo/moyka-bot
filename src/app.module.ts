@@ -9,6 +9,7 @@ import { Car } from './bot/entities/cars.entity';
 import { Service } from './bot/entities/services.entity';
 import { User } from './bot/entities/users.entity';
 import { Worker } from './bot/entities/workers.entity';
+import { SmsModule } from './sms/sms.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { Worker } from './bot/entities/workers.entity';
       models: [Admin, Car, Service, User, Worker],
     }),
     BotModule,
+    SmsModule,
   ],
   controllers: [],
   providers: [],
